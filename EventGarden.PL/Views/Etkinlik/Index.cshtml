@@ -1,0 +1,50 @@
+﻿@model List<EtkinlikListDTO>
+@{
+    Layout = "_Layout";
+}
+<a asp-action="Create"><i class="fa-solid fa-plus"></i></a>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th> Adı</th>
+            <th> Açıklaması</th>
+            <th> Kategorisi</th>
+            <th> Status</th>
+            <th> Resim Yolu</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+            <th>Durum</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Category.Name</td>
+                <td>
+                    @{
+                        if(item.IsStatus!=false){
+                            <span style="color:green">Aktif</span>
+                        }
+                        else{
+                            <span style="color:red">Pasif</span>
+
+                        }
+                    }
+                 
+                </td>
+                <td>@item.ImagePath</td>
+                <td> <a asp-action="Update" asp-controller="Etkinlik" asp-route-id="@item.Id"> <i class="fa-solid fa-pen-to-square"></i> </a> </td>
+                <td> <a asp-action="Delete" asp-controller="Etkinlik" asp-route-id="@item.Id"> <i class="fa-solid fa-trash"></i> </a> </td>
+                <td> <a asp-action="StateUpdate" asp-controller="Etkinlik" asp-route-id="@item.Id"> <i class="fa-solid fa-recycle"></i> </a> </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>

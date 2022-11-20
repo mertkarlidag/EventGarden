@@ -1,0 +1,36 @@
+﻿@model AppUserCreateDTO
+@{
+    Layout = "_Layout";
+}
+<div class="container-fluid">
+    <form asp-action="SignUp" asp-controller="Account" method="post">
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Surname"></label>
+            <input asp-for="Surname" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+        </div>
+        <div class="mb-3" asp-validation-summary="All"></div>
+        <div class="my-3">
+            <button class="btn btn-success" type="submit">Kaydol</button>
+        </div>
+    </form>
+</div>

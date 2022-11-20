@@ -1,0 +1,27 @@
+﻿@model List<BasketEventListDTO>
+@{
+    Layout = "_Layout";
+}
+
+@for (var i = 0; i < Model.Count; i++)
+{
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5">
+                        <img class="img-fluid rounded-circle" src="@Url.Content(Model[i].Etkinlik.ImagePath)" />
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">@Model[i].Etkinlik.Name</h2>
+                        <p>@Model[i].Etkinlik.Description</p>
+                        <a asp-action="Add" asp-controller="BasketEvent" asp-route-id="@Model[i].Id"> <i class="fa-regular fa-bookmark"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+

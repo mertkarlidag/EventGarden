@@ -1,0 +1,33 @@
+﻿@model EtkinlikCreateDTO
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <form asp-action="Create" asp-controller="Etkinlik" method="post" class="p-4 w-75 mx-auto" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name">Etkinlik Adı:</label>
+            <input asp-for="Name" class="form-control" placeholder="Etkinlik Adı" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Etkinlik Detayları(Açıklamaları):</label>
+            <input asp-for="Description" class="form-control" placeholder="Etkinlik Detayları/Açıklaması" />
+        </div>
+        <div class="mb-3">
+            <select class="form-select" asp-items="@ViewBag.CategoryList" asp-for="@Model.CategoryId">
+                <option value="0">Kategori</option>
+            </select>
+        </div>
+       @* <div class="mb-3">
+            <label asp-for="Name">Etkinlik Adı:</label>
+            <input asp-for="CategoryId" class="form-control" placeholder="Etkinlik Adı" />
+        </div>*@
+        <div class="mb-3">
+            <input id="file" type="file" name="file" class="form-control" />
+        </div>
+        <div class="text-danger " asp-validation-summary="All">
+        </div>
+        <div class="mb-3 text-lg-end">
+            <button class="btn btn-primary" type="submit">Kaydet</button>
+        </div>
+    </form>
+</div>

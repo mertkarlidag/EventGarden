@@ -1,0 +1,30 @@
+﻿@model EtkinlikUpdateDTO
+
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <form asp-action="Update" asp-controller="Etkinlik" class="p-4 w-75 mx-auto" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input  asp-for="Name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description"  class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" asp-items="@ViewBag.CategoryList" asp-for="@Model.CategoryId">
+                <option value="0">Kategori</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input id="file" type="file" name="file" class="form-control" />
+        </div>
+        <div class="text-danger " asp-validation-summary="All">
+        </div>
+        <div class="mb-3 text-lg-end">
+            <button class="btn btn-success" type="submit">Kaydet</button>
+        </div>
+   </form>
+</div>

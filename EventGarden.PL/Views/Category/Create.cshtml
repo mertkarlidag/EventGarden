@@ -1,0 +1,19 @@
+﻿
+@model CategoryCreateDTO
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <form asp-controller="Category" asp-action="Create" class="p-4 w-75 mx-auto" method="post">
+        <div class="mb-3">
+            <label asp-for="Name">Kategori Adı:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div asp-validation-summary="All" class="bg-success"></div>
+        <div class="my-3">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+
+    </form>
+    
+</div>

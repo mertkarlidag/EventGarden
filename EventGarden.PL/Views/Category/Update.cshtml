@@ -1,0 +1,16 @@
+﻿@model CategoryUpdateDTO
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <form asp-action="Update" asp-controller="Category" method="post">
+        <div class="mb-3">
+            <label>Kategori Adı</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div asp-validation-summary="All" class="bg-success"></div>
+        <div class="my-3">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </form>
+</div>
